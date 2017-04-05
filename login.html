@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CyberSport</title>
+    <title>Войти</title>
     <link rel="stylesheet" href="css/all.css">
   </head>
   <body>
@@ -188,8 +188,9 @@
       </form>
       <input type="submit" value="Забанить" class="ban-actions__act">
     </div>
-    <div class="page-container main-background">
+    <div class="page-container personal-page-background">
       <div class="wrapper">
+        <!--include ../templates/_nav-games-->
         <nav class="navbar header">
           <button type="button" data-toggle="collapse" data-target="#adaptiveMenu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggle navbar-toggler-right"><span class="navbar-toggler-icon"></span></button><a href="index.html" class="navbar-brand"><img src="../img/besa-logo-light.svg"></a>
           <div id="adaptiveMenu" class="collapse navbar-collapse">
@@ -210,46 +211,20 @@
                 </div></span><span>/</span><span class="registration"><a href="../registration.html">Регистрация</a></span></div>
           </div>
         </nav>
-        <div class="container-fluid flex-center">
-          <div class="menu-game">
-            <div class="row">
-              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <div class="menu-game__item menu-game__item--hover-cs"><img src="../img/cs-go_item.jpg" alt="CSGO">
-                  <div class="menu-game__wrap">
-                    <div class="menu-game__game-logo"><img src="../img/cs-go_logo.svg"></div>
-                  </div>
-                  <div class="menu-game__button-wrap"><a href="main-page-csgo.html" class="menu-game__link">Узнать больше</a></div>
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <div class="menu-game__item menu-game__item--hover-wot"><img src="../img/wot_item.jpg" alt="wot">
-                  <div class="menu-game__wrap">
-                    <div class="menu-game__game-logo"><img src="../img/wot_logo.svg"></div>
-                  </div>
-                  <div class="menu-game__button-wrap"><a href="main-page-wot.html" class="menu-game__link">Узнать больше</a></div>
-                </div>
-              </div>
+        <div class="login-block">
+          <h2>Вход</h2>
+          <form>
+            <div class="login-input">
+              <input type="text" size="40" placeholder="Логин/E-mail">
             </div>
-            <div class="row">
-              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <div class="menu-game__item menu-game__item--hover-paragon"><img src="../img/paragon_item.jpg" alt="paragon">
-                  <div class="menu-game__wrap">
-                    <div class="menu-game__game-logo"><img src="../img/paragon_logo.svg"></div>
-                  </div>
-                  <div class="menu-game__button-wrap"><a href="main-page-paragon.html" class="menu-game__link">Узнать больше</a></div>
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <div class="menu-game__item menu-game__item--hover-dota"><img src="../img/dota_item.jpg" alt="dota">
-                  <div class="menu-game__wrap">
-                    <div class="menu-game__game-logo"><img src="../img/dota_logo.svg"></div>
-                  </div>
-                  <div class="menu-game__button-wrap"><a href="main-page-dota.html" class="menu-game__link">Узнать больше</a></div>
-                </div>
-              </div>
+            <div class="login-input">
+              <input type="password" size="40" placeholder="Пароль">
             </div>
-          </div>
+            <button>Войти</button>
+          </form>
         </div>
+        <!--Created by Алина on 17.11.2016.
+        -->
         <div class="footer">
           <ul class="tech-support">
             <li class="tech-support__item"><a class="link-item">Faq</a></li>

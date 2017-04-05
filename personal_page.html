@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CyberSport</title>
+    <title>Личный кабинет</title>
     <link rel="stylesheet" href="css/all.css">
   </head>
   <body>
@@ -188,8 +188,9 @@
       </form>
       <input type="submit" value="Забанить" class="ban-actions__act">
     </div>
-    <div class="page-container main-background">
+    <div class="page-container personal-page-background">
       <div class="wrapper">
+        <!--include ../templates/_nav-games-->
         <nav class="navbar header">
           <button type="button" data-toggle="collapse" data-target="#adaptiveMenu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggle navbar-toggler-right"><span class="navbar-toggler-icon"></span></button><a href="index.html" class="navbar-brand"><img src="../img/besa-logo-light.svg"></a>
           <div id="adaptiveMenu" class="collapse navbar-collapse">
@@ -210,43 +211,121 @@
                 </div></span><span>/</span><span class="registration"><a href="../registration.html">Регистрация</a></span></div>
           </div>
         </nav>
-        <div class="container-fluid flex-center">
-          <div class="menu-game">
+        <div class="container-fluid">
+          <div class="personal-data">
             <div class="row">
-              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <div class="menu-game__item menu-game__item--hover-cs"><img src="../img/cs-go_item.jpg" alt="CSGO">
-                  <div class="menu-game__wrap">
-                    <div class="menu-game__game-logo"><img src="../img/cs-go_logo.svg"></div>
-                  </div>
-                  <div class="menu-game__button-wrap"><a href="main-page-csgo.html" class="menu-game__link">Узнать больше</a></div>
+              <div class="col-lg-3 col-md-3">
+                <div class="personal-page__user-img"><img src="../img/user-img.jpg"></div>
+                <div class="personal-data__button personal-data__button--service"><a href="">Загрузить фотографию</a></div>
+                <div class="personal-data__button personal-data__button--service"><a href="">Редактировать профиль</a></div>
+              </div>
+              <div class="col-lg-5 col-md-5">
+                <div class="user_data">
+                  <div class="user_data__login-l"><span class="user_data__login">Megaman</span></div>
+                  <table class="user_data__common">
+                    <tr>
+                      <td>ФИО</td>
+                      <td class="user_data__fio">Абрамчик Марья Пушкевич</td>
+                    </tr>
+                    <tr>
+                      <td>Страна</td>
+                      <td class="user_data__country">Беларусь</td>
+                    </tr>
+                    <tr>
+                      <td>Дата рождения</td>
+                      <td class="user_data__born">27.2.1993</td>
+                    </tr>
+                    <tr>
+                      <td>E-mail</td>
+                      <td class="user_data__email">team-dota@gail.com</td>
+                    </tr>
+                    <tr>
+                      <td>О себе</td>
+                      <td class="user_data__about">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis eros vel erat efficitur, id convallis ante efficitur. Praesent finibus, lectus ac pretium volutpat, tellus mauris congue orci, eu tristique lacus odio ac mauris.
+                        
+                        
+                        
+                      </td>
+                    </tr>
+                  </table>
                 </div>
               </div>
-              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <div class="menu-game__item menu-game__item--hover-wot"><img src="../img/wot_item.jpg" alt="wot">
-                  <div class="menu-game__wrap">
-                    <div class="menu-game__game-logo"><img src="../img/wot_logo.svg"></div>
+              <div class="col-lg-4 col-md-4">
+                <div class="games-selected">
+                  <div class="games-selected__item--hover-cs"><img src="../img/cs-go_item.jpg" alt=""></div>
+                  <div class="games-selected__item--hover-wot"><img src="../img/wot_item.jpg" alt="wot"></div>
+                  <div class="games-selected__item games-selected__item--hover-paragon"><img src="../img/paragon_item.jpg" alt="paragon">
+                    <div class="games-selected__wrap"></div>
                   </div>
-                  <div class="menu-game__button-wrap"><a href="main-page-wot.html" class="menu-game__link">Узнать больше</a></div>
+                  <div class="games-selected__item games-selected__item--hover-dota"><img src="../img/dota_item.jpg" alt="dota"></div>
                 </div>
               </div>
             </div>
             <div class="row">
-              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <div class="menu-game__item menu-game__item--hover-paragon"><img src="../img/paragon_item.jpg" alt="paragon">
-                  <div class="menu-game__wrap">
-                    <div class="menu-game__game-logo"><img src="../img/paragon_logo.svg"></div>
-                  </div>
-                  <div class="menu-game__button-wrap"><a href="main-page-paragon.html" class="menu-game__link">Узнать больше</a></div>
+              <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
+                <button onclick="$('#commandsModal').modal('toggle');" class="personal-data__button personal-data__button--stretch">Команды</button>
+              </div>
+              <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
+                <button onclick="" class="personal-data__button personal-data__button--stretch">Уведомления</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="commandsModal" class="l-commands modal fade">
+          <div class="commands">
+            <div class="commands__team"><span>Члены команды</span>
+              <ul class="team__list">
+                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+              </ul>
+            </div>
+            <div class="commands__search">
+              <div class="search-wrap">
+                <div class="input-wrap">
+                  <input type="search" placeholder="Поиск">
+                  <button class="search_button"></button>
                 </div>
               </div>
-              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <div class="menu-game__item menu-game__item--hover-dota"><img src="../img/dota_item.jpg" alt="dota">
-                  <div class="menu-game__wrap">
-                    <div class="menu-game__game-logo"><img src="../img/dota_logo.svg"></div>
-                  </div>
-                  <div class="menu-game__button-wrap"><a href="main-page-dota.html" class="menu-game__link">Узнать больше</a></div>
-                </div>
-              </div>
+              <button onclick="$('#commandsModal').modal('toggle');" class="close">X</button>
+              <ul class="search__list">
+                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+              </ul>
             </div>
           </div>
         </div>
