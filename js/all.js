@@ -1,89 +1,229 @@
-var resultTempForNewsBlock = `<div class="news__item">
-                      <div class="news__img"><img alt="imf cyber" src="http://mulehorngaming.com/wp-content/uploads/2015/12/gamer-wallpaperswallpaper-gamer-controllers-artwork-gamer-wallpaper-gamingholic-g1unpxck.jpg"></div>
-                      <div class="news_tag">Новости</div>
-                      <h4 class="news__header">Riot Games перестала принимать заявки на тестовый сервер</h4>
-                      <p class="news__preview-text">
-                       Компания Riot Games временно закрыла регистрацию на тестовый сервер League of Legends. Согласно анонсу, решение связано с плохой работой сайта PBE (Public Beta Environment). Riot Games возобновит прием заявок после того, как портал приведут в рабочее состояние.
-                      </p><span class="news__data">04.02.2017</span>
-                    </div>
-                    <div class="news__item">
-                      <div class="news__img"><img alt="imf cyber" src="http://mulehorngaming.com/wp-content/uploads/2015/12/gamer-wallpaperswallpaper-gamer-controllers-artwork-gamer-wallpaper-gamingholic-g1unpxck.jpg"></div>
-                      <div class="news_tag">Новости</div>
-                      <h4 class="news__header">Selfless распустила состав по CS:GO 
-По материалам киберспортивного портала CyberSport.ru</h4>
-                      <p class="news__preview-text">
-                        Организация Selfless Gaming распустила состав по Counter-Strike: Global Offensive. Три киберспортсмена продолжат играть вместе. Информация была опубликована на официальном сайте организации.
-По материалам киберспортивного портала CyberSport.ru
-                      </p><span class="news__data">04.02.2017</span>
-                    </div>
-                    <div class="news__item">
-                      <div class="news__img"><img alt="imf cyber" src="http://mulehorngaming.com/wp-content/uploads/2015/12/gamer-wallpaperswallpaper-gamer-controllers-artwork-gamer-wallpaper-gamingholic-g1unpxck.jpg"></div>
-                      <div class="news_tag">Новости</div>
-                      <h4 class="news__header">Andi: «Командам из СНГ не хватает дисциплины и коммуникации»</h4>
-                      <p class="news__preview-text">
-                        Новый тренер Natus Vincere G2A Андрей «Andi» Прохоров в интервью GameInside.ua рассказал, как он попал в организацию, какие у него обязанности в коллективе
-                      </p><span class="news__data">04.02.2017</span>
-                    </div>`;
+var jsonTest = {
+    "NewsViewModelList": [
+        {
+            "NewsId": 29,
+            "Author": "admin",
+            "Title": "Новость от admin про CSGo",
+            "Content": "Эту новость про CSGo написал admin",
+            "PublishDate": "/Date(1486253417577)/",
+            "PathToImage": "/Content/Images/News/_default1.jpg"
+        },
+        {
+            "NewsId": 25,
+            "Author": "admin",
+            "Title": "Новость от admin про CSGo",
+            "Content": "Эту новость про CSGo написал admin",
+            "PublishDate": "/Date(1485853417577)/",
+            "PathToImage": "/Content/Images/News/_default1.jpg"
+        },
+        {
+            "NewsId": 21,
+            "Author": "admin",
+            "Title": "Новость от admin про CSGo",
+            "Content": "Эту новость про CSGo написал admin",
+            "PublishDate": "/Date(1485453417577)/",
+            "PathToImage": "/Content/Images/News/_default1.jpg"
+        },
+        {
+            "NewsId": 17,
+            "Author": "admin",
+            "Title": "Новость от admin про CSGo",
+            "Content": "Эту новость про CSGo написал admin",
+            "PublishDate": "/Date(1485053417577)/",
+            "PathToImage": "/Content/Images/News/_default1.jpg"
+        },
+        {
+            "NewsId": 13,
+            "Author": "admin",
+            "Title": "Новость от admin про CSGo",
+            "Content": "Эту новость про CSGo написал admin",
+            "PublishDate": "/Date(1484653417577)/",
+            "PathToImage": "/Content/Images/News/_default1.jpg"
+        }
+    ],
 
+    "PageInfo": {
+        "PageNumber": 1,
+        "PageSize": 5,
+        "TotalItems": 8,
+        "TotalPages": 2
+    }
+}
 
+//use strict
 
 $(document).ready(function() {
     //Обновление новосте при нажатии на стрелки
     (function () {
-        var newsDeriction = 'next';
-        var isLoaded = true;
+        const pageTitle = {
+            cs: "CS GO",
+            paragon: "Paragon",
+            dota: "Dota 2",
+            wot: "World of tanks",
+        }
+        var directlyPageTitle = $('head > title').html();
+        var newsPageDirectly = 1,
+             isLoaded = true;
+
         // При нажатии на стрелки в блоке новостей отправка ajax за след/пред новостями
         $(".news").on("click", function (e) {
             if (!isLoaded) return;
-            var headerHeight = $(".news__header").css("height");
-            var newsContainer = $(".news__container");
-            var newsPosts = $(".news__container").children();
-            var arrowDeriction = e.target.parentNode;
-            var arrowClassName = arrowDeriction.className;
 
-            if (arrowClassName == "news__arrow-l") {
-                newsDeriction = 'priv';
-                sendAjaxNews("SomeServlet/_SomeMethod", newsDeriction, replaceNewsPosts);
-            } else if (arrowClassName == "news__arrow-r") {
-                newsDeriction = 'next';
-                sendAjaxNews("SomeServlet/_SomeMethod", newsDeriction, replaceNewsPosts);
-            } else return;
+                var headerHeight = $(".news__header").css("height"),
+                newsContainer = $(".news__container"),
+                newsPosts = $(".news__container").children(),
+                arrowDeriction = e.target.parentNode,
+                arrowClassName = arrowDeriction.className;
 
+            var pageTitleId = getIdOfPage(directlyPageTitle);
+            newsPageDirectly = getPageNumber(arrowClassName, newsPageDirectly);
+
+            console.log("Page namber: ",newsPageDirectly);
+            var sendNewsParams = {
+                theme: pageTitleId,
+                page: newsPageDirectly,
+                newsPerPage: 3
+            }
+
+            if (arrowClassName == 'news__arrow-l' || arrowClassName == 'news__arrow-r') {
+                var ppp = getNewPosts("/News/GetPagedNews", sendNewsParams, replaceNewsPosts);
+            }
+
+
+            //Все функции
             function replaceNewsPosts() {
                 newsContainer.css("opacity", 0);
+                isLoaded = false;
+
                 setTimeout(function () {
-                    var parseNews = $.parseHTML(resultTempForNewsBlock);
+                    // var parseNews = jQuery.parseJSON(jsonTest);
+                    // var parseNews;
+                    var newsArray = jsonTest.NewsViewModelList;
+                    newsArray.map(function (obj, index) {
+                        if (index > 2) return;
+
+                        newsItem = $(
+                            '<div class="news__item">' +
+                            '<div class="news__img">' +
+                            '<a href=""><img src=http://mulehorngaming.com/wp-content/uploads/2015/12/gamer-wallpaperswallpaper-gamer-controllers-artwork-gamer-wallpaper-gamingholic-g1unpxck.jpg ></a>' +
+                            '</div>' +
+                            '<div class="news_tag">Новости</div>' +
+                            '<h4 class="news__header">' +
+                            obj.Title +
+                            '</h4>' +
+                            '<p class="news__preview-text">' +
+                            obj.Content +
+                            ' </p>' +
+                            '<span class="news__data">' +
+                            obj.PublishDate +
+                            '</span>' +
+                            '</div>'
+                        );
+                        newsContainer.append(newsItem);
+                    });
+
                     newsPosts.remove();
-                    newsContainer.append(parseNews);
                     $(".news__header").height(headerHeight);
                     newsContainer.css("opacity", 1);
+
                     isLoaded = true;
                 },300);
-                isLoaded = false;
             }
 
-            function sendAjaxNews(methodName, newsDeriction, callback) {
-                $.ajax({
-                    type: "POST",
-                    url: methodName, // Вызываемый метод на сервере
-                    // url: "SomeServlet/_SomeMethod", // Вызываемый метод на сервере
-                    contentType: "'application/x-www-form-urlencoded; charset=UTF-8",
-                    data: {newsDeriction: newsDeriction},
-                    dataType: "json",
-                    success: function (result) {
-                        console.log(newsDeriction);
-                        //  returning something
-                        console.log('result... ' + result);
-
-                    },
-                    error: function (result) {
-                        callback();
-                    }
-                });
-            }
 
         });
 
+
+        //Получить предыдущие посты для мобилки
+        $(".news__more-news button").on('click', function (e) {
+            var pageTitleId = getIdOfPage(directlyPageTitle);
+            newsPageDirectly += 1;
+            var sendNewsParams = {
+                theme: pageTitleId,
+                page: newsPageDirectly,
+                newsPerPage: 3
+            }
+
+            console.log("Page #: ",newsPageDirectly);
+
+            var headerHeight = $(".news__header").css("height"),
+                newsContainer = $(".news__container"),
+                newsPosts = $(".news__container").children(),
+                arrowDeriction = e.target.parentNode,
+                arrowClassName = arrowDeriction.className;
+
+            getNewPosts("/News/GetPagedNewsMobil", sendNewsParams, replaceNewsPostsMobile)
+
+            function replaceNewsPostsMobile() {
+                    var newsArray = jsonTest.NewsViewModelList;
+                    newsArray.map(function (obj, index) {
+                        if (index > 2) return;
+
+                        newsItem = $(
+                            '<div class="news__item">' +
+                            '<div class="news__img">' +
+                            '<a href=""><img src=http://mulehorngaming.com/wp-content/uploads/2015/12/gamer-wallpaperswallpaper-gamer-controllers-artwork-gamer-wallpaper-gamingholic-g1unpxck.jpg ></a>' +
+                            '</div>' +
+                            '<div class="news_tag">Новости</div>' +
+                            '<h4 class="news__header">' +
+                            obj.Title +
+                            '</h4>' +
+                            '<p class="news__preview-text">' +
+                            obj.Content +
+                            ' </p>' +
+                            '<span class="news__data">' +
+                            obj.PublishDate +
+                            '</span>' +
+                            '</div>'
+                        );
+                        newsContainer.append(newsItem);
+                    });
+
+                    // newsPosts.remove();
+                    $(".news__header").height(headerHeight);
+            }
+
+
+        });
+
+
+        function getNewPosts(methodName, newsParams, callback) {
+            $.ajax({
+                type: "POST",
+                url: methodName, // Вызываемый метод на сервере
+                contentType: "'application/x-www-form-urlencoded; charset=UTF-8",
+                data: newsParams,
+                dataType: "json",
+                success: function (result) {
+                    //  return something
+                    console.log('result... ' + result);
+
+
+                },
+                error: function (result) {
+                    // return result;
+                    callback();
+                }
+            });
+        }
+        function getIdOfPage(pageType) {
+            console.log(pageType);
+            switch (pageType) {
+                case pageTitle.cs: return 1;
+                case pageTitle.paragon: return 2;
+                case pageTitle.dota: return 3;
+                case pageTitle.wot: return 4;
+                default:  return 5;
+            }
+        }
+        function getPageNumber(arrowClassName, newsPageDirectly) {
+            if (arrowClassName == "news__arrow-l") {
+                if (newsPageDirectly == 1) return newsPageDirectly;
+                return newsPageDirectly -= 1;
+            } else if (arrowClassName == "news__arrow-r") {
+                return newsPageDirectly += 1;
+            } else return newsPageDirectly;
+        }
     })();
 
     //Кнопка бана
@@ -282,7 +422,8 @@ $(document).ready(function() {
 
 //Добавление сообщения в чат. Добавление обработчиков на кнопки бана
     var appendMessage = function appendMessage(dataMessage) {
-        // var messege = $('<li class="chat__messenge"><a class="chat_ban-actions"><i aria-hidden="true" class="fa fa-ban"></i></a><div class="chat__user">' +
+        // var messege = $('<li class="chat__messenge"><a class="chat_ban-actions">' +
+        //     '<i aria-hidden="true" class="fa fa-ban"></i></a><div class="chat__user">' +
         // '<div class="chat__avatar"><img src="https://support.rockstargames.com/system/photos/0001/4510/9157/profile_image_877736018_61840.png"></div>' +
         // '<em class="chat__user-name">' + name +'</em>' +
         // '<em class="chat__time">' + time + '</em></div>' +
@@ -323,7 +464,7 @@ $(document).ready(function() {
 
 
 
-    $(".videos__list, .streams__list, .matches__table, .team__list, .search__list").mCustomScrollbar();
+    $(".videos__list, .streams__list, .matches__table, .team__list, .search__list").mCustomScrollbar({alwaysShowScrollbar: 1});
 
 // Удалить рекламу на веременном сервере
     /*
@@ -374,6 +515,49 @@ $(document).ready(function() {
         videoViewerIrame.replaceWith(iframe);
     });
 }());
+
+//Поиск игроков .В личном кабинете
+(function () {
+    var searchButton = $("#search_button");
+    var searchInput = $("#search_input");
+
+    searchInput.keypress(function (e) {
+        console.log(this.value);
+    })
+
+    searchButton.on('click', function (e) {
+        var requestGemer = searchInput[0].value;
+        var gamerListWrapper =  $("#mCSB_2");
+        var gamerList;
+
+        $.ajax({
+            type: "POST",
+            url: "SomeServlet/getSearchListOfGamers",
+            contentType: "'application/x-www-form-urlencoded; charset=UTF-8",
+            data: {requestGemer: requestGemer},
+            dataType: "json",
+            success: function (result) {
+                console.log('Yiiii');
+            },
+            error: function (result) {
+                gamerList = $('#mCSB_2_container');
+                gamerList.empty();
+
+                for (var i = 0; i < 20; i++) {
+                    var li = $('<li></li>').attr('class', 'search__item');
+                    var a = $('<a></a>');
+                    var img = $('<img>').attr('src', '../img/user-img.jpg');
+                    var span = $('<span>' +'NickName' + i + '</span>').attr('class', 'name');
+                    a.append(img);
+                    li.append(a);
+                    li.append(span);
+                    gamerList.append(li[0]);
+                }
+                gamerListWrapper.append(gamerList);
+            }
+        });
+    })
+})();
 
 
 
