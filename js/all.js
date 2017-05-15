@@ -752,7 +752,7 @@ var notifArray = [
 //Уведомленяия polliyng ajax
 (function() {
     var notification = $('.personal-data__has-notifiction')
-        timer = 3000;
+        timer = 8000;
 
     if (notification.length !== 0) {
         (function () {
