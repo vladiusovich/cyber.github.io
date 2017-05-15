@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Личный кабинет</title>
+    <title>Cтраница командира</title>
     <link rel="stylesheet" href="css/all.css">
   </head>
   <body>
@@ -248,32 +248,34 @@
                 <button onclick="$('#commandsModal').modal('toggle');" class="personal-data__button personal-data__button--stretch">Команды</button>
               </div>
               <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
-                <button onclick="" class="personal-data__button personal-data__button--stretch">Уведомления</button>
+                <div class="l-personal-data__button">
+                  <button class="personal-data__button personal-data__button--stretch personal-data__button--notifiction">Уведомления
+                    <div class="personal-data__has-notifiction"></div>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div id="commandsModal" class="l-commands modal fade">
-          <div class="commands">
+          <div class="commands commands--commander">
             <div class="commands__team"><span>Члены команды</span>
               <ul class="team__list">
-                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="team__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li data-id='1' class="team__item"><a href=""><img src="../img/user-img.jpg"></a><a href="#" class="name">Puuuu</a></li>
+                        <li data-id='9' class="team__item"><a href=""><img src="../img/user-img.jpg"></a><a href="#" class="name">Puuuu</a></li>
+                        <li data-id='0' class="team__item"><a href=""><img src="../img/user-img.jpg"></a><a href="#" class="name">Puuuu</a></li>
+                        <li data-id='64' class="team__item"><a href=""><img src="../img/user-img.jpg"></a><a href="#" class="name">Puuuu</a></li>
               </ul>
+              <div class="commands__control">
+                <div class="commands__function">
+                  <button class="commands__change-commander">Отдать Лидерство</button>
+                  <button class="commands__delete-gamer">Исключить из команды</button>
+                </div>
+                <div class="commands__actions">
+                  <button class="commands__cancel">Отмена</button>
+                  <button class="commands__ok">Ок</button>
+                </div>
+              </div>
             </div>
             <div class="commands__search">
               <div class="search-wrap">
@@ -284,30 +286,113 @@
               </div>
               <button onclick="$('#commandsModal').modal('toggle');" class="close">X</button>
               <ul class="search__list">
-                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
-                        <li class="search__item"><a href=""><img src="../img/user-img.jpg"></a><span class="name">Puuuu</span></li>
+                        <li data-id='3' class="search__item"><a href="#"><img src="../img/user-img.jpg"></a><a href="#" class="name">Puuuu</a>
+                          <button class="search__invite">Пригласить в команду</button>
+                        </li>
+                        <li data-id='657' class="search__item"><a href="#"><img src="../img/user-img.jpg"></a><a href="#" class="name">Puuuu</a>
+                          <button class="search__invite">Пригласить в команду</button>
+                        </li>
+                        <li data-id='78' class="search__item"><a href="#"><img src="../img/user-img.jpg"></a><a href="#" class="name">Puuuu</a>
+                          <button class="search__invite">Пригласить в команду</button>
+                        </li>
+                        <li data-id='345' class="search__item"><a href="#"><img src="../img/user-img.jpg"></a><a href="#" class="name">Puuuu</a>
+                          <button class="search__invite">Пригласить в команду</button>
+                        </li>
+                        <li data-id='234' class="search__item"><a href="#"><img src="../img/user-img.jpg"></a><a href="#" class="name">Puuuu</a>
+                          <button class="search__invite">Пригласить в команду</button>
+                        </li>
+                        <li data-id='9987' class="search__item"><a href="#"><img src="../img/user-img.jpg"></a><a href="#" class="name">Puuuu</a>
+                          <button class="search__invite">Пригласить в команду</button>
+                        </li>
+                        <li data-id='554' class="search__item"><a href="#"><img src="../img/user-img.jpg"></a><a href="#" class="name">Puuuu</a>
+                          <button class="search__invite">Пригласить в команду</button>
+                        </li>
+                        <li data-id='5677' class="search__item"><a href="#"><img src="../img/user-img.jpg"></a><a href="#" class="name">Puuuu</a>
+                          <button class="search__invite">Пригласить в команду</button>
+                        </li>
+                        <li data-id='34' class="search__item"><a href="#"><img src="../img/user-img.jpg"></a><a href="#" class="name">Puuuu</a>
+                          <button class="search__invite">Пригласить в команду</button>
+                        </li>
+                        <li data-id='67' class="search__item"><a href="#"><img src="../img/user-img.jpg"></a><a href="#" class="name">Puuuu</a>
+                          <button class="search__invite">Пригласить в команду</button>
+                        </li>
+                        <li data-id='88' class="search__item"><a href="#"><img src="../img/user-img.jpg"></a><a href="#" class="name">Puuuu</a>
+                          <button class="search__invite">Пригласить в команду</button>
+                        </li>
+                        <li data-id='34' class="search__item"><a href="#"><img src="../img/user-img.jpg"></a><a href="#" class="name">Puuuu</a>
+                          <button class="search__invite">Пригласить в команду</button>
+                        </li>
+                        <li data-id='346' class="search__item"><a href="#"><img src="../img/user-img.jpg"></a><a href="#" class="name">Puuuu</a>
+                          <button class="search__invite">Пригласить в команду</button>
+                        </li>
+                        <li data-id='347' class="search__item"><a href="#"><img src="../img/user-img.jpg"></a><a href="#" class="name">Puuuu</a>
+                          <button class="search__invite">Пригласить в команду</button>
+                        </li>
+                        <li data-id='3489' class="search__item"><a href="#"><img src="../img/user-img.jpg"></a><a href="#" class="name">Puuuu</a>
+                          <button class="search__invite">Пригласить в команду</button>
+                        </li>
+                        <li data-id='3573' class="search__item"><a href="#"><img src="../img/user-img.jpg"></a><a href="#" class="name">Puuuu</a>
+                          <button class="search__invite">Пригласить в команду</button>
+                        </li>
+                        <li data-id='234' class="search__item"><a href="#"><img src="../img/user-img.jpg"></a><a href="#" class="name">Puuuu</a>
+                          <button class="search__invite">Пригласить в команду</button>
+                        </li>
+                        <li data-id='328' class="search__item"><a href="#"><img src="../img/user-img.jpg"></a><a href="#" class="name">Puuuu</a>
+                          <button class="search__invite">Пригласить в команду</button>
+                        </li>
+                        <li data-id='547' class="search__item"><a href="#"><img src="../img/user-img.jpg"></a><a href="#" class="name">Puuuu</a>
+                          <button class="search__invite">Пригласить в команду</button>
+                        </li>
+                        <li data-id='45732' class="search__item"><a href="#"><img src="../img/user-img.jpg"></a><a href="#" class="name">Puuuu</a>
+                          <button class="search__invite">Пригласить в команду</button>
+                        </li>
+                        <li data-id='25' class="search__item"><a href="#"><img src="../img/user-img.jpg"></a><a href="#" class="name">Puuuu</a>
+                          <button class="search__invite">Пригласить в команду</button>
+                        </li>
+                        <li data-id='34634' class="search__item"><a href="#"><img src="../img/user-img.jpg"></a><a href="#" class="name">Puuuu</a>
+                          <button class="search__invite">Пригласить в команду</button>
+                        </li>
               </ul>
             </div>
+          </div>
+        </div>
+        <div id="NotificationModal" class="l-notification modal fade">
+          <div class="notification"><span>Уведомления</span>
+            <button onclick="$('#NotificationModal').modal('toggle');" class="close">X</button>
+            <ul class="notification-list">
+                      <li data-id='9' class="notification__item">
+                        <div class="notification__new-notifiction"></div><span class="notification__title">Хочет вас пригласить в команду</span><span class="notification__time">2017-05-10</span>
+                        <div class="notification__actions"><a href="#" class="notification__button notification__invite--ok">Принять</a><a href="#" class="notification__button notification__invite--cancel">Отклонить</a></div>
+                      </li>
+                      <li data-id='9' class="notification__item">
+                        <div class="notification__new-notifiction"></div><span class="notification__title">Хочет вас пригласить в команду</span><span class="notification__time">2017-05-10</span>
+                        <div class="notification__actions"><a href="#" class="notification__button notification__invite--ok">Принять</a><a href="#" class="notification__button notification__invite--cancel">Отклонить</a></div>
+                      </li>
+                      <li data-id='0' class="notification__item">
+                        <div class="notification__new-notifiction"></div><span class="notification__title">Хочет вас пригласить в команду</span><span class="notification__time">2017-05-10</span>
+                        <div class="notification__actions"><a href="#" class="notification__button notification__invite--ok">Принять</a><a href="#" class="notification__button notification__invite--cancel">Отклонить</a></div>
+                      </li>
+                      <li data-id='0' class="notification__item">
+                        <div class="notification__new-notifiction"></div><span class="notification__title">Хочет вас пригласить в команду</span><span class="notification__time">2017-05-10</span>
+                        <div class="notification__actions"><a href="#" class="notification__button notification__invite--ok">Принять</a><a href="#" class="notification__button notification__invite--cancel">Отклонить</a></div>
+                      </li>
+                      <li data-id='0' class="notification__item">
+                        <div class="notification__new-notifiction"></div><span class="notification__title">Хочет вас пригласить в команду</span><span class="notification__time">2017-05-10</span>
+                        <div class="notification__actions"><a href="#" class="notification__button notification__invite--ok">Принять</a><a href="#" class="notification__button notification__invite--cancel">Отклонить</a></div>
+                      </li>
+                      <li data-id='0' class="notification__item">
+                        <div class="notification__new-notifiction"></div><span class="notification__title">Хочет вас пригласить в команду</span><span class="notification__time">2017-05-10</span>
+                        <div class="notification__actions"><a href="#" class="notification__button notification__invite--ok">Принять</a><a href="#" class="notification__button notification__invite--cancel">Отклонить</a></div>
+                      </li>
+                      <li data-id='64' class="notification__item">
+                        <div class="notification__new-notifiction"></div><span class="notification__title">Хочет вас пригласить в команду</span><span class="notification__time">2017-05-10</span>
+                        <div class="notification__actions"><a href="#" class="notification__button notification__invite--ok">Принять</a><a href="#" class="notification__button notification__invite--cancel">Отклонить</a></div>
+                      </li>
+                      <li data-id='64' class="notification__item">
+                        <div class="notification__new-notifiction"></div><span class="notification__title">Хочет вас пригласить в команду</span><span class="notification__time">2017-05-10</span>
+                        <div class="notification__actions"><a href="#" class="notification__button notification__invite--ok">Принять</a><a href="#" class="notification__button notification__invite--cancel">Отклонить</a></div>
+                      </li>
+            </ul>
           </div>
         </div>
         <div class="footer">
